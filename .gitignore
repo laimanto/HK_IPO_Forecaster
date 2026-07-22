@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Excel lock files
+~$*.xlsx
+
+# Backup / scratch copies (not part of the pipeline)
+*- Copy*.xlsx
+*_backup_*.xlsx
+out*.txt
+headers*.txt
+row_out.txt
+rows_out.txt
+scratch_out*.json
+scratch_out*.txt
+
+# Machine-local Claude Code config (contains absolute local paths)
+.claude/settings.local.json
