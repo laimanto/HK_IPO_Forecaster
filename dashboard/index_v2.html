@@ -69,6 +69,9 @@
   .imp-bar-bg { flex:1; background:#2a2a30; border-radius:3px; overflow:hidden; height:14px; }
   .imp-bar { background:var(--blue); height:100%; }
   .imp-pct { width:44px; font-size:11px; }
+  .status-open { color:var(--rise); font-weight:700; }
+  .status-pending { color:var(--muted); }
+  .upcoming-note { white-space:normal; min-width:340px; color:var(--muted); }
 </style>
 </head>
 <body>
@@ -76,8 +79,9 @@
 <div class="tabs">
   <h1>HK IPO Forecaster</h1>
   <button class="tab-btn active" onclick="showTab('data')">IPO 數據</button>
+  <button class="tab-btn" onclick="showTab('upcoming')">即將上市 (17)</button>
   <button class="tab-btn" onclick="showTab('model')">Model</button>
-  <div class="clock">最後更新 UTC-4: <b>2026-07-22 17:11:22</b><br>UTC+8: <b>2026-07-23 05:11:22</b></div>
+  <div class="clock">最後更新 UTC-4: <b>2026-07-22 17:25:27</b><br>UTC+8: <b>2026-07-23 05:25:27</b></div>
 </div>
 
 <div id="tab-data" class="tab-panel active">
@@ -92,6 +96,13 @@
     </table>
   </div>
   <div id="ctooltip"></div>
+</div>
+
+<div id="tab-upcoming" class="tab-panel">
+  <div class="model-content">
+    <h2>即將上市 IPO (未入正式評分表)</h2>
+    <p class="rubric-note">已遞交上市申請但仲未入到「IPO 數據」tab度俾模型評分嘅公司——包括已通過聆訊、已招股嘅(狀態:認購中)，同埋仲喺申請/等聆訊階段嘅(狀態:待招股)。「未開始申購」= 官方仲未公布招股日期，唔係「唔會招股」。每日自動WebSearch更新，一旦正式招股滿1週有埋實際股價數據，就會轉入「IPO 數據」tab俾模型評分。</p><table><thead><tr><th>名稱</th><th>狀態</th><th>開始申購日</th><th>截止申購日</th><th>預計上市日期</th><th>備註</th></tr></thead><tbody><tr><td>中際旭創</td><td class="status-open">認購中</td><td>2026-07-22</td><td>2026-07-27</td><td>2026-07-30</td><td class="upcoming-note">光模塊龍頭，A股300308.SZ，2026-07-16通過港交所上市聆訊，2026-07-22正式招股，招股價上限不超過1,010港元/股，全球發售約5,450萬股H股(香港公開發售佔約10%即545萬股)，擬集資約545-550億港元，淡馬錫/高瓴/阿里/騰訊等機構參與基石投資，或成2026年港股最大IPO，主板</td></tr><tr><td>亦諾微醫藥</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">第三次遞表(2025年6月、2026年1月、2026年7月19日左右)，聯席保薦人花旗/中金，目前無商業化產品、近5個月無營收，累計虧損逾23億人民幣，IPO前估值4.85億美元</td></tr><tr><td>保濟元</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-07-19左右遞交港交所上市申請，中成藥消費品牌</td></tr><tr><td>太合音樂</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-06-22遞交港交所主板上市申請，德意志銀行/中信建投國際聯席保薦，華語音樂內容及服務市場排名第一(百度為控股股東，投票權37.36%)，2025年收入13億人民幣，資產負債率高達110.9%；過去三年演唱會票房收入約15億元但累計仍虧損近10億元</td></tr><tr><td>奧動新能源</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-07-19第二次遞交港交所主板上市申請(首次2025-12-12)，電動車換電服務商，招銀國際獨家保薦，蔚來資本/暢聯股份為股東，若成功上市將成港股「換電第一股」，2025年按換電站運營服務收入計於中國排名第三；中國證監會2026-03要求補充說明歷史股權代持情況</td></tr><tr><td>威兆半導體</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-07-14第二次遞交港交所主板上市申請(首次2026-01-12)，深圳市威兆半導體股份有限公司，專注WLCSP等高性能功率半導體器件，廣發證券獨家保薦；近期業績由盈轉虧且遭監管問詢利益輸送情況</td></tr><tr><td>宏芯宇</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">深圳宏芯宇電子，2026-07-03遞交港交所主板上市申請(第二次)，按2025年收益計全球第五大、內地第二大獨立存儲器廠商，2025年首九個月收入77.44億人民幣，淨利潤3.51億(同比跌54.5%)，中信建投國際獨家保薦；截至2026-04-30止四個月收入逾10億美元、期內利潤逾5億美元，成立僅7年，2023年D輪估值近108億人民幣</td></tr><tr><td>建邦金屬</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-07-14首次遞交港交所主板上市申請，全稱濟南建邦金屬材料股份有限公司，中國知名銀粉(光伏銀漿用)供應商，中信建投國際獨家保薦；2022-2024年收入由17.6億增至39.5億人民幣但毛利率僅3-4%</td></tr><tr><td>明宇製藥</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">第二次遞表港交所(2026-07-08/09再遞)，聚焦整合性腫瘤學，結合抗體偶聯藥物(ADC)與免疫療法，虧損擴大，負債約28億，摩根士丹利/美銀證券/中信證券聯席保薦；截至2026-05-31總負債28.59億元、資產負債率高達306%，由恒瑞醫藥前高管曹國慶帶隊</td></tr><tr><td>景澤生物-B</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">第三次遞表港交所主板18A(2025-06-27、2025-12-31、2026-07-03)，專注輔助生殖藥物及眼科藥物，2023/2024年收入均為0，虧損2.46億/2.43億人民幣，中金公司/國元國際聯席保薦；C+輪投後估值30.9億人民幣，核心產品JZB05預計2026下半年完成III期臨床試驗</td></tr><tr><td>江蘇知原藥業</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-07-08遞交港交所主板上市申請，專注外用皮膚科領域的中國製藥公司；2024-10曾主動撤回A股主板上市申請轉戰港股，近3億人民幣Pre-IPO輪由創新工場領投/凱輝基金等跟投，投後估值28.2億人民幣，阿里健康持股1.69%</td></tr><tr><td>海柔創新</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-02-13遞交港交所主板上市申請，倉儲自動化ACR解決方案全球最大供應商(市佔率逾30%)，2023-2025年首九月累計虧損逾28億人民幣，超50億贖回負債，高盛/中信證券聯席保薦；2026-07-10中國證監會要求就遞交備案申請前12個月內新增股東入股價格合理性作補充說明，2023-2025前9個月營收8.07億/13.6億/12.63億人民幣，毛利率升至28.9%</td></tr><tr><td>潍柴雷沃</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-06-21第三次遞交港交所主板上市申請，中金公司獨家保薦，中國智慧農業整體解決方案服務商(農機龍頭)，A拆A創業板失敗後轉戰港股；2025年收入180.23億人民幣、淨利潤9.73億人民幣</td></tr><tr><td>用友網絡</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-07-15第三次遞交港交所主板上市申請(前兩次2025-06-27及2025-12-29均因六個月內未通過聆訊而失效)，已於2001年A股上市(600588.SH)，招銀國際/中信證券聯席保薦；市場解讀為現金流壓力下急於「找錢」</td></tr><tr><td>盯盯拍</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-06-22遞交港交所主板上市申請，光銀國際獨家保薦，車載智慧影像設備商，按2025年出貨量計全球無屏車載智慧影像設備市佔率第一(7%)，2025年收入4.76億人民幣/溢利3661萬；創始人羅勇為華為系創業團隊</td></tr><tr><td>芯天下</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-07-10第二次遞交港交所主板上市申請(首次招股書已於7/9失效)，廣發證券/中信證券聯席保薦，Fabless存儲芯片供應商(NOR Flash/SLC NAND Flash為主)；2022年曾申請深交所創業板IPO(擬集資約4.98億元)但已於2023年底撤回</td></tr><tr><td>鉑科電子</td><td class="status-pending">待招股</td><td>未開始申購</td><td>未開始申購</td><td>—</td><td class="upcoming-note">2026-07-13第二次遞交港交所主板上市申請(首次2026-01-12)，按2025年收益計為內地第二大高性能算力服務器電源供應商(全球及中國第一)，招商證券國際獨家保薦；2024年收入5.56億人民幣同比增長一倍、淨利潤暴增九倍</td></tr></tbody></table>
+  </div>
 </div>
 
 <div id="tab-model" class="tab-panel">
