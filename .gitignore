@@ -17,3 +17,10 @@ scratch_out*.txt
 
 # Machine-local Claude Code config (contains absolute local paths)
 .claude/settings.local.json
+
+# Everything below runs/lives locally only. This repo publishes the dashboard,
+# not the research/scoring pipeline that builds it.
+/data/
+/doc/
+/scripts/
+/dashboard/index.html
