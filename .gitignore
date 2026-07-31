@@ -24,3 +24,10 @@ scratch_out*.txt
 /doc/
 /scripts/
 /dashboard/index.html
+
+# Local launchers, moved to the repo root 2026-07-31 so they're easy to
+# double-click. Same reasoning as /scripts/ above -- they drive the local
+# pipeline and hard-code local absolute paths, so they don't belong in a
+# dashboard-only repo.
+/*.bat
+/bat_readme.md
