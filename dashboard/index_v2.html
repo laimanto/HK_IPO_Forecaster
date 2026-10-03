@@ -87,7 +87,7 @@
   <button class="tab-btn active" onclick="showTab('data')">IPO 數據</button>
   <button class="tab-btn" onclick="showTab('upcoming')">即將上市 (77)</button>
   <button class="tab-btn" onclick="showTab('model')">Model</button>
-  <div class="clock">最後更新 UTC-4: <b>2026-10-03 00:49:40</b><br>UTC+8: <b>2026-10-03 12:49:40</b></div>
+  <div class="clock">最後更新 UTC-4: <b>2026-10-03 00:56:50</b><br>UTC+8: <b>2026-10-03 12:56:50</b></div>
 </div>
 
 <div id="tab-data" class="tab-panel active">
@@ -155,7 +155,7 @@ const BEST_COMBOS = [{"drop_max": 0.5, "rise_min": 0.35, "n": 54, "pct_of_total"
 const PROB_COLS = new Set(["跌穿發行價機率", "升破100%機率"]);
 const RUNNING_1WK_COLS = new Set(["真實1週最低%", "真實1週最高%"]);
 
-let sortState = { key: "上市日期", dir: -1 };
+let sortState = { key: "截止認購日", dir: -1 };
 let filterState = {};
 
 function showTab(name) {
